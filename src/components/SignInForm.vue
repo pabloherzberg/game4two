@@ -1,20 +1,7 @@
 <template>
   <div>
-    <input
-      type="text"
-      name="email"
-      placeholder="e-mail"
-      :value="email"
-      @input="(e) => (this.email = e.target.value)"
-    />
-    <input
-      type="text"
-      name="password"
-      placeholder="senha"
-      :value="pass"
-      @input="(e) => (this.pass = e.target.value)"
-    />
-    <button @click="handleSubmit">Entrar</button>
+    <button @click="handleSubmit(1)">PLAYER 1</button>
+    <button @click="handleSubmit(2)">PLAYER 2</button>
   </div>
 </template>
 
@@ -36,7 +23,13 @@ export default {
     };
   },
   methods: {
-    async handleSubmit() {
+    async handleSubmit(player) {
+      if (player === 1) {
+        this.email = "teste@teste.com";
+      }
+      if (player === 2) {
+        this.email = "teste1@teste.com";
+      }
       await this.userAuth.handleSignIn(this.email, this.pass);
       router.push({ name: "HomePage" });
     },
