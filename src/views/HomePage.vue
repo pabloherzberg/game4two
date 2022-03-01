@@ -86,6 +86,7 @@ export default {
   },
   mounted() {
     this.getPlayers();
+    console.log(this.players);
   },
   created() {
     this.setKeyboardEvent();
